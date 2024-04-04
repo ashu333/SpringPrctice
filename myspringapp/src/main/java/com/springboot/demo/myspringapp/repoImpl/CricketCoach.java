@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.springboot.learning.myspringapp.repository.Coach;
 
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class CricketCoach implements Coach {
 
 	@Override

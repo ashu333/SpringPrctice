@@ -8,7 +8,6 @@ import com.springboot.learning.myspringapp.repository.Coach;
 
 @Component
 @Primary
-@Lazy
 public class BaseballCoach implements Coach {
 
 	@Override
