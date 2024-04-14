@@ -1,5 +1,8 @@
 package com.springboot.demo.myspringapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +25,11 @@ public class MyspringappApplication {
 	public CommandLineRunner commandLineRunner(StudentDao studentDao) {
 		return runner->{
 			System.out.println("hello command line runner ...");
-			saveStudent(studentDao);
+			//saveStudent(studentDao);
+			//saveMultipleStudent(studentDao);
+			System.out.println(studentDao.findById(2));
+			studentDao.getResult();
+			studentDao.updateRow();
 		};
 	}
 	
@@ -30,6 +37,18 @@ public class MyspringappApplication {
 		Student student = new Student("ashish","koirala","ashish.koirala@gmail.com");
 		studentDao.save(student);
 		System.out.println("student saved with id = "+student.getId());
+	}
+	
+	public void saveMultipleStudent(StudentDao studentDao) {
+		Student student = new Student("ashish1","koirala1","ashish.koirala1@gmail.com");
+		Student student1 = new Student("ashish2","koirala2","ashish.koirala2@gmail.com");
+		Student student2= new Student("ashish3","koirala3","ashish.koirala3@gmail.com");
+		List<Student> theStudentList = new ArrayList<Student>();
+		theStudentList.add(student);
+		theStudentList.add(student1);
+		theStudentList.add(student2);
+		studentDao.saveMultiple(theStudentList);
+		//System.out.println("student saved with id = "+student.getId());
 	}
 
 }
